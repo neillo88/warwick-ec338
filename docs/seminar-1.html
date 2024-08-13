@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EC338</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">EC338</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lectures</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+        <li>
+    <a class="dropdown-item" href="./lecture-1.qmd">
+ <span class="dropdown-text">Lecture 1.1</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seminars" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Seminars</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-seminars">    
+        <li>
+    <a class="dropdown-item" href="./seminar-1.html">
+ <span class="dropdown-text">Seminar 1</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-additional" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Additional</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-additional">    
+        <li>
+    <a class="dropdown-item" href="./material-cef.html">
+ <span class="dropdown-text">Conditional Expectation Function</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./material-linearalgebra.html">
+ <span class="dropdown-text">Linear Algebra</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#power-calculations-and-simulations" id="toc-power-calculations-and-simulations" class="nav-link active" data-scroll-target="#power-calculations-and-simulations">Power Calculations and Simulations</a>
+  <ul class="collapse">
+  <li><a href="#required-r-packages" id="toc-required-r-packages" class="nav-link" data-scroll-target="#required-r-packages">Required R Packages</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#power-calculation" id="toc-power-calculation" class="nav-link" data-scroll-target="#power-calculation">Power calculation</a></li>
+  <li><a href="#simulation-of-power-function" id="toc-simulation-of-power-function" class="nav-link" data-scroll-target="#simulation-of-power-function">Simulation of power function</a>
+  <ul class="collapse">
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#data-generating-process" id="toc-data-generating-process" class="nav-link" data-scroll-target="#data-generating-process">Data generating process</a></li>
+  <li><a href="#monte-carlo-simulation" id="toc-monte-carlo-simulation" class="nav-link" data-scroll-target="#monte-carlo-simulation">Monte Carlo simulation</a></li>
+  <li><a href="#power-function" id="toc-power-function" class="nav-link" data-scroll-target="#power-function">Power function</a></li>
+  <li><a href="#sample-size" id="toc-sample-size" class="nav-link" data-scroll-target="#sample-size">Sample size</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="seminar-1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="power-calculations-and-simulations" class="level1">
+<h1>Power Calculations and Simulations</h1>
+<section id="required-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="required-r-packages">Required R Packages</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>In this seminar you will learn how to:</p>
+<ul>
+<li><p>make an <em>a priori</em> power calculation for an experiment;</p></li>
+<li><p>simulate an experiment in R/Stata;</p></li>
+<li><p>and visualize the properties of the power function.</p></li>
+</ul>
+</section>
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>Statistical power is an valuable theoretical and practical concept. The power of a test is the probability of rejecting the null hypothesis when the alternative hypothesis is true.</p>
+<p>Let’s consider the simple null hypothesis of no <em>average</em> treatment effect,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><span class="math display">\[
+  H_0: \tau_{ATE} = 0
+\]</span></p>
+<p>When testing this null hypothesis against the alternative,</p>
+<p><span class="math display">\[
+H_1: \tau_{ATE} \neq 0
+\]</span></p>
+<p>the set of values that fulfill the alternative hypothesis is any value on the real line, excluding 0.</p>
+<p>The power of this test is,</p>
+<p><span class="math display">\[
+  Pr\big(\text{Reject }H_0|H_1\text{ is true}\big) = Pr\big(\text{Reject }H_0|\tau_{ATE} = \tau_0; \tau_0\neq 0\big)
+\]</span></p>
+<p>When do we reject <span class="math inline">\(H_0\)</span>? A valid test is defined by a rejection rule based on a test static and a corresponding critical value. For example, in this two-sided test,</p>
+<p><span class="math display">\[
+\text{Reject }H_0\text{ if}\qquad \bigg| \frac{\hat{\tau}}{se(\hat{\tau})}\bigg|&gt;z_{1-\alpha/2}
+\]</span></p>
+<p>In statistical inference there is a trade off between Type I and II errors. We limit Type I erros - probability of rejecting <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is true - through the choice of <span class="math inline">\(\alpha\)</span>: the significance level. In Economics, this is typically chosen to be 1%, 5%, or 10%.</p>
+<p><span class="math display">\[
+\alpha = Pr\big(\text{Reject }H_0|H_0\text{ is true}\big)
+\]</span> A test is said to be of <em>size</em> <span class="math inline">\(\alpha\)</span> if the probability of a Type I error is <span class="math inline">\(\leq \alpha\)</span>.</p>
+<p>The finite sample distribution of this test statistic is not known as we do not know the distributions of <span class="math inline">\(\{Y(1),Y(0)\}\)</span> upon which the test statistic is based.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> By the Central Limit Theorem, we know that the limiting distribution is standard normal under the null hypothesis. This is true only under <span class="math inline">\(H_0\)</span>. The CLT holds for the true mean of estimator (<span class="math inline">\(E[\hat{\tau}]=\tau_{ATE}\)</span>), which we know under <span class="math inline">\(H_0\)</span> to be <span class="math inline">\(0\)</span>.</p>
+<p>Thus, under <span class="math inline">\(H_0\)</span>,</p>
+<p><span class="math display">\[
+\frac{\hat{\tau}}{se(\hat{\tau})} = \frac{\hat{\tau}-E[\hat{\tau}]}{se(\hat{\tau})} \overset{d}\longrightarrow N(0,1) \quad \text{as }n\rightarrow \infty
+\]</span> For this reason, we can approximate the distribution of the test statistic with the standard normal.</p>
+<p><span class="math display">\[
+\frac{\hat{\tau}}{se(\hat{\tau})} \quad a.\thicksim N(0,1) \quad \text{under }H_0
+\]</span></p>
+<div id="exr-size1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Can you show that the size of this test is <span class="math inline">\(\alpha\)</span> (as <span class="math inline">\(n\rightarrow \infty\)</span>)?</p>
+</div>
+<p>Unfortunatley, we cannot restrict the probability of both a Type I and II error. Here, we chose the critical values to give us a test of size <span class="math inline">\(\alpha\)</span>. By doing so, we give up the possibility of limiting the probability of a Type II error. Moreover, a smaller <span class="math inline">\(\alpha\)</span> will necessarily imply a higher probability of Type II error.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>The probability of a Type II error depends on the power of the test.</p>
+<p><span class="math display">\[
+Pr\big(\text{Failing to reject }H_0|H_0\text{ is false}\big) = 1 - Pr\big(\text{Reject }H_0|H_1\text{ is true}\big)
+\]</span></p>
+<p>A more powerful test has a lower probability of Type II error. Since, two tests might have the same size (i.e., <span class="math inline">\(\alpha\)</span>) we strictly prefer the more powerful test. Power is therefore an important metric by which we can compare different tests.</p>
+<p>For this test (<span class="math inline">\(H_0: \tau_{ATE}=0\)</span>), the power of the test tells you how likely you are to detect a given non-zero average treatment effect in the experiment. Given how expensive it is to implement experiments (especially in Economics), this is useful information. There would be no point running a RCT if the likelihood of rejecting a null effect is very low.</p>
+</section>
+<section id="power-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="power-calculation">Power calculation</h2>
+<p>In this setting, the power function tells you the probability of rejecting <span class="math inline">\(H_0\)</span> for any true value of the ATE; denoted here by the scalar <span class="math inline">\(\tau_0\)</span>. For the above two-sided test, this is given by,</p>
+<p><span class="math display">\[
+\begin{aligned}
+        \theta(\tau_0)=&amp;Pr(\text{Reject }H_0|\tau_{ATE}=\tau_0) \\
+        =&amp; Pr\left(\bigg|\frac{\hat{\tau}}{se(\hat{\tau})}\bigg|&gt;z_{1-\alpha/2}\bigg|\tau_{ATE}=\tau_0\right) \\
+        =&amp;Pr\left(\frac{\hat{\tau}}{se(\hat{\tau})}&lt;z_{\alpha/2}\bigg|\tau_{ATE}=\tau_0\right)+Pr\left(\frac{\hat{\tau}}{se(\hat{\tau})}&gt;z_{1-\alpha/2}\bigg|\tau_{ATE}=\tau_0\right) \\
+        =&amp;Pr\left(\frac{\hat{\tau}-\tau_0}{se(\hat{\tau})}+\frac{\tau_0}{se(\hat{\tau})}&lt;z_{\alpha/2}\bigg|\tau_{ATE}=\tau_0\right)+Pr\left(\frac{\hat{\tau}-\tau_0}{se(\hat{\tau})}+\frac{\tau_0}{se(\hat{\tau})}&gt;z_{1-\alpha/2}\bigg|\tau_{ATE}=\tau_0\right) \\
+        \approx&amp; Pr\left(Z&lt;z_{\alpha/2}-\frac{\tau_0}{se(\hat{\tau})}\bigg|\tau_{ATE}=\tau_0\right)+Pr\left(Z&gt;z_{1-\alpha/2}-\frac{\tau_0}{se(\hat{\tau})}\bigg|\tau_{ATE}=\tau_0\right)
+    \end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(Z\)</span> is a standard normal random variable. The final equality is an approximation since we do not know the finite sample distribution of the test statistic.</p>
+<div id="exr-power1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> Given the above definition of the power function, what is <span class="math inline">\(\theta(0)\)</span>?</p>
+</div>
+<p>To make further use of this function, we need to define <span class="math inline">\(\hat{\tau}\)</span> and <span class="math inline">\(se(\hat{\tau})\)</span>. Consider,</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \hat{\tau} =&amp; \frac{1}{N_t} \sum_{i:W_i=1}Y_i-\frac{1}{N_c} \sum_{i:W_i=0}Y_i \\
+  se(\hat{\tau}) =&amp; \sqrt{V^{cons}} \\
+  =&amp;\sqrt{S^2\left(\frac{1}{N_t}+\frac{1}{N_c}\right)}
+\end{aligned}
+\]</span></p>
+<p>Here we are using the constant-variance finite sample estimator. One cannot use the Neyman estimator without prior knowledge the variance of <span class="math inline">\(Y(1)\)</span>, the potential outcome with treatment. For this reason, it is less useful in power calculations made prior to the experiment.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div id="exr-power2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> A researcher has a sample of 650 individuals: <span class="math inline">\(N_t = 270\)</span> and <span class="math inline">\(N_c = 380\)</span>. Using the above formulae, calculate the power of the experiment to detect a treatment effect equal to 15% of a standard deviation of the outcome variable.</p>
+</div>
+<div id="exr-power3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> A researcher needs to show that their test has 80% power for a treatment effect of 20% of a standard deviation of the outcome. Using the above formulae, compute the sample size needed to achieve this level of power when assignment into treatment is equal. Then compute the required sample size if only a third of the sample is treated.</p>
+</div>
+<div id="exr-power4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> How could you improve the power of an experiment?</p>
+</div>
+</section>
+<section id="simulation-of-power-function" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-of-power-function">Simulation of power function</h2>
+<p>In this section we will simulate an experiment and plot the power function of the OLS estimator from a simple linear regression model.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> We will also examine the impact of adding good controls (covariates) to the estimated model.</p>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<p>We begin by constructing a vector of potential outcomes, <span class="math inline">\(\{Y(0),Y(1)\}\)</span>, based on a known data generating process (DGP) and treatment effect. We will assign values to <span class="math inline">\(Y(0)\)</span> based on the following linear DGP,</p>
+<p><span class="math display">\[
+        Y_i(0) = \alpha + X_i'\gamma + \varepsilon_i
+\]</span></p>
+<p>where,</p>
+<ul>
+<li><p><span class="math inline">\(Y_i(0)\)</span> is the potential outcome without treatment and is measured after treatment has taken place. In this exercise we assume that the outcome is the log of wages.</p></li>
+<li><p><span class="math inline">\(X_i\)</span> is a vector of covariates that explain some of the variation in <span class="math inline">\(Y_i(0)\)</span>. In this instance, we will treat it as a linear term in age and gender dummy.</p></li>
+<li><p>The error term will be drawn from a distribution of our choosing.</p></li>
+</ul>
+<p>For this exercise, the relevant parameters <span class="math inline">\(\{\alpha,\gamma',\sigma_{\varepsilon}\}\)</span> have been chosen to match a linear model of log wages against a dummy variable for gender and linear term in age, using data from the 2017 US CPS.</p>
+<p>We can then generate the observed outcome as,</p>
+<p><span class="math display">\[
+    Y_i = Y_i(0) + \tau W_i
+\]</span></p>
+<p>where <span class="math inline">\(W_i\)</span> is an indicator function denoting treatment status in a completely randomized experiment with equal allocation to treatment and control. We will specify the homogeneous treatment to be <span class="math inline">\(\tau = 2\%\)</span>.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+</section>
+<section id="data-generating-process" class="level3">
+<h3 class="anchored" data-anchor-id="data-generating-process">Data generating process</h3>
+<p>Start by setting a seed. This ensures that all random number generators in this programme are replicable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12956</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Generate an empty dataframe with 200 observations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">200</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Define the parameters of the simulation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.07</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gamma_f <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.17</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>gamma_a <span class="ot">&lt;-</span> <span class="fl">0.08</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="fl">0.02</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After having selected each parameter we need to draw values of each explanatory variable, including the error term, in order to calculate the value of the potential outcomes. In this instance we will make use of known distributions.</p>
+<p>The error term will be drawn from a normal distribution <span class="math inline">\(N(0,0.55)\)</span>. Gender will be drawn from a binonmial distribution while age will be a sequence of integers assigned based on a uniform distribution. As each variable is drawn independently, the covariance of the two variables should be zero. However, the covariance in the realized sample will be non-zero.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>female <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">200</span>,<span class="dv">1</span>,<span class="fl">0.5</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="dv">46</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">200</span>) <span class="sc">+</span> <span class="dv">20</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>,<span class="dv">0</span>,<span class="fl">0.55</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Generate Y(0)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>Y0 <span class="ot">&lt;-</span> alpha <span class="sc">+</span> gamma_f<span class="sc">*</span>data1<span class="sc">$</span>female <span class="sc">+</span> gamma_a<span class="sc">*</span>data1<span class="sc">$</span>age <span class="sc">+</span> data1<span class="sc">$</span>error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To control the number of observations assigned to treatment and control we will not use the binomial distribution command. Instead we will use a uniformly distributed number to sort and then group the data. Note, there are many way to do this assignment.</p>
+<p>We can then apply the treatment and generate the observable outcome variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>temp <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">200</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>treat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data1<span class="sc">$</span>temp<span class="sc">&gt;=</span><span class="fu">median</span>(data1<span class="sc">$</span>temp),<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data1<span class="sc">$</span>treat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+100 100 </code></pre>
+</div>
+</div>
+<p>Generate the observable outcome variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>Yobs <span class="ot">&lt;-</span> data1<span class="sc">$</span>Y0 <span class="sc">+</span> tau<span class="sc">*</span>data1<span class="sc">$</span>treat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can now estimate the treatment effect using a linear regression model, with and without the additional covariates.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat, <span class="at">data=</span>data1)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat <span class="sc">+</span> female <span class="sc">+</span> age, <span class="at">data=</span>data1)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"(1)"</span><span class="ot">=</span>reg1,<span class="st">"(2)"</span><span class="ot">=</span>reg2), <span class="at">stars=</span><span class="fu">c</span>(<span class="st">'*'</span><span class="ot">=</span>.<span class="dv">1</span>, <span class="st">'**'</span><span class="ot">=</span>.<span class="dv">05</span>,<span class="st">'***'</span><span class="ot">=</span>.<span class="dv">01</span>), <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>, <span class="st">"rmse"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+ 
+
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tinytable_6pi48zj88msnj88p7u2w</title>
+    <style>
+.table td.tinytable_css_p1vi9iln1z03xbjlzqyx, .table th.tinytable_css_p1vi9iln1z03xbjlzqyx {    border-bottom: solid 0.1em #d3d8dc; }
+.table td.tinytable_css_wxqs2ozpclre9iwhurnm, .table th.tinytable_css_wxqs2ozpclre9iwhurnm {    text-align: left; }
+.table td.tinytable_css_w8k4q721s4jlejjopaiv, .table th.tinytable_css_w8k4q721s4jlejjopaiv {    text-align: center; }
+.table td.tinytable_css_4l8vlgkxxw42fztnfv8d, .table th.tinytable_css_4l8vlgkxxw42fztnfv8d {    text-align: center; }
+.table td.tinytable_css_q3g1zoy7myqw2jgelyvs, .table th.tinytable_css_q3g1zoy7myqw2jgelyvs {    border-bottom: solid 0.05em black; }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+  
+
+  
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_6pi48zj88msnj88p7u2w" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">(1)</th>
+                <th scope="col">(2)</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan="3">* p &lt; 0.1, ** p &lt; 0.05, *** p &lt; 0.01</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>(Intercept)</td>
+                  <td>3.397***</td>
+                  <td>0.094   </td>
+                </tr>
+                <tr>
+                  <td>           </td>
+                  <td>(0.120) </td>
+                  <td>(0.146) </td>
+                </tr>
+                <tr>
+                  <td>treat      </td>
+                  <td>-0.018  </td>
+                  <td>-0.003  </td>
+                </tr>
+                <tr>
+                  <td>           </td>
+                  <td>(0.170) </td>
+                  <td>(0.082) </td>
+                </tr>
+                <tr>
+                  <td>female     </td>
+                  <td>        </td>
+                  <td>-0.182**</td>
+                </tr>
+                <tr>
+                  <td>           </td>
+                  <td>        </td>
+                  <td>(0.083) </td>
+                </tr>
+                <tr>
+                  <td>age        </td>
+                  <td>        </td>
+                  <td>0.079***</td>
+                </tr>
+                <tr>
+                  <td>           </td>
+                  <td>        </td>
+                  <td>(0.003) </td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.   </td>
+                  <td>200     </td>
+                  <td>200     </td>
+                </tr>
+                <tr>
+                  <td>R2         </td>
+                  <td>0.000   </td>
+                  <td>0.770   </td>
+                </tr>
+                <tr>
+                  <td>RMSE       </td>
+                  <td>1.20    </td>
+                  <td>0.57    </td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function styleCell_tinytable_9gs4ubkyn36sjtay2wq6(i, j, css_id) {
+        var table = document.getElementById("tinytable_6pi48zj88msnj88p7u2w");
+        table.rows[i].cells[j].classList.add(css_id);
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_6pi48zj88msnj88p7u2w');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_tinytable_9gs4ubkyn36sjtay2wq6(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_6pi48zj88msnj88p7u2w");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(0, 0, 'tinytable_css_p1vi9iln1z03xbjlzqyx') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(0, 1, 'tinytable_css_p1vi9iln1z03xbjlzqyx') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(0, 2, 'tinytable_css_p1vi9iln1z03xbjlzqyx') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(0, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(1, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(2, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(3, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(4, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(5, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(6, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(7, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(8, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(9, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(10, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(11, 0, 'tinytable_css_wxqs2ozpclre9iwhurnm') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(0, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(1, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(2, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(3, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(4, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(5, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(6, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(7, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(8, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(9, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(10, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(11, 1, 'tinytable_css_w8k4q721s4jlejjopaiv') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(0, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(1, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(2, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(3, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(4, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(5, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(6, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(7, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(8, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(9, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(10, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(11, 2, 'tinytable_css_4l8vlgkxxw42fztnfv8d') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(8, 0, 'tinytable_css_q3g1zoy7myqw2jgelyvs') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(8, 1, 'tinytable_css_q3g1zoy7myqw2jgelyvs') })
+window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjtay2wq6(8, 2, 'tinytable_css_q3g1zoy7myqw2jgelyvs') })
+    </script>
+
+  
+
+
+</div>
+</div>
+<p>Why are the two estimates of <span class="math inline">\(\tau\)</span> - <span class="math inline">\(\hat{\beta}_1^{OLS}\)</span> and <span class="math inline">\(\hat{\beta}_2^{OLS}\)</span> - not equal to 0.02? The OLS estimator is a random variable that has a distribution. The unconfoundedness of the treatment assignment and the homogeneous treatment effects mean that in expectation these estimators are unbiased and equal to 0.02. However, a particular realization may not be. In fact, the probability that <span class="math inline">\(\hat{\beta}^{OLS}=\tau_{ATE}=0.2\)</span> is 0.</p>
+</section>
+<section id="monte-carlo-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-simulation">Monte Carlo simulation</h3>
+<p>To examine this characteristic of both estimators we will repeat the above process R-times. This will allow us to observe the overall distribution of the estimator. To do so we will write a short program that executes the same process R-times. The programme stores value of the estimator in a matrix.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mat1 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">200</span>));</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>female <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">200</span>,<span class="dv">1</span>,<span class="fl">0.5</span>);</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="dv">46</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">200</span>) <span class="sc">+</span> <span class="dv">20</span>);</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>,<span class="dv">0</span>,<span class="fl">0.55</span>);</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>Y0 <span class="ot">&lt;-</span> alpha <span class="sc">+</span> gamma_f<span class="sc">*</span>df<span class="sc">$</span>female <span class="sc">+</span> gamma_a<span class="sc">*</span>df<span class="sc">$</span>age <span class="sc">+</span> df<span class="sc">$</span>error;</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>temp <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">200</span>);</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>treat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>temp<span class="sc">&gt;=</span><span class="fu">median</span>(df<span class="sc">$</span>temp),<span class="dv">1</span>,<span class="dv">0</span>);</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>Yobs <span class="ot">&lt;-</span> df<span class="sc">$</span>Y0 <span class="sc">+</span> tau<span class="sc">*</span>df<span class="sc">$</span>treat;</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat, <span class="at">data=</span>df);</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat <span class="sc">+</span> female <span class="sc">+</span> age, <span class="at">data=</span>df);</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  coef <span class="ot">&lt;-</span> <span class="fu">c</span>(lm1<span class="sc">$</span>coefficients[<span class="dv">2</span>],lm2<span class="sc">$</span>coefficients[<span class="dv">2</span>])</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>}, <span class="at">simplify =</span> <span class="st">"array"</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>mat2 <span class="ot">&lt;-</span><span class="fu">t</span>(mat1)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mat2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"beta1"</span>,<span class="st">"beta2"</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mat2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     beta1              beta2         
+ Min.   :-0.50429   Min.   :-0.22257  
+ 1st Qu.:-0.09083   1st Qu.:-0.03110  
+ Median : 0.02168   Median : 0.01811  
+ Mean   : 0.01898   Mean   : 0.02053  
+ 3rd Qu.: 0.12914   3rd Qu.: 0.07469  
+ Max.   : 0.52228   Max.   : 0.28544  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(mat2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      vars    n mean   sd median trimmed  mad   min  max range  skew kurtosis
+beta1    1 1000 0.02 0.17   0.02    0.02 0.16 -0.50 0.52  1.03 -0.07     0.06
+beta2    2 1000 0.02 0.08   0.02    0.02 0.08 -0.22 0.29  0.51 -0.02    -0.01
+        se
+beta1 0.01
+beta2 0.00</code></pre>
+</div>
+</div>
+<p>Having repeated the process 1000 times we can now examine the characteristics of each estimator, first by summarizing the stored values and then graphically. First, using a histogram:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat2), <span class="fu">aes</span>(<span class="at">x=</span>beta1)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">colour=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(beta1)),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="seminar-1_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat2), <span class="fu">aes</span>(<span class="at">x=</span>beta2)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">colour=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(beta2)),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="seminar-1_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Second, using a kernel density function, which generates a smoothed estimate of the density function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat2), <span class="fu">aes</span>(<span class="at">x=</span>beta1)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta1,<span class="at">color=</span><span class="st">"Beta1"</span>)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta2,<span class="at">color=</span><span class="st">"Beta2"</span>),<span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Beta1"</span>,<span class="st">"Beta2"</span>,<span class="st">"tau=0.02"</span>),</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"Beta1"</span><span class="ot">=</span><span class="st">"red"</span>, <span class="st">"Beta2"</span><span class="ot">=</span><span class="st">"blue"</span>,<span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>)) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"kernel density plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="seminar-1_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The distribution of both estimators is remarkably . This is by design. The distribution of <span class="math inline">\(\hat{\beta}\)</span> is dependent on the distribution of the error term. In this instance, that is a normal distribution because of the DGP we specified.</p>
+</section>
+<section id="power-function" class="level3">
+<h3 class="anchored" data-anchor-id="power-function">Power function</h3>
+<p>To compute the power function we need to know the variance of each of our two OLS estimators. Given that the variance of the estimator is in fact known, we could include this directly. Alternatively, we could estimate the variance of the each estimator using the distribution from the simulation.</p>
+<p>Let us see how close the simulation variance is to the true DGP variance. From the DGP, we know that</p>
+<p><span class="math display">\[
+\begin{aligned}
+    Var(\hat{\beta}^{OLS}_1) &amp;= \frac{\gamma_f^2Var(female_i)+\gamma_a^2Var(age_i)+\sigma_{\varepsilon}^2}{N(\bar{W}-\bar{W}^2)} \\
+    Var(\hat{\beta}^{OLS}_2) &amp;= \frac{\sigma_{\varepsilon}^2}{N(\bar{W}-\bar{W}^2)}
+\end{aligned}
+\]</span> where, <span class="math display">\[
+    \begin{aligned}
+    Var(female_i) &amp;= 0.5(1-0.5) \\
+    Var(age_i) &amp;= \frac{1}{12}(65-20)^2
+\end{aligned}
+\]</span></p>
+<p>Calculate standard error for each estimator based on known distributions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>se1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((gamma_f<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> gamma_a<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="dv">1</span><span class="sc">/</span><span class="dv">12</span><span class="sc">*</span>(<span class="dv">65-20</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">200</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>se2 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">200</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>se1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1667168</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>se2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.07778175</code></pre>
+</div>
+</div>
+<p>Approximate the standard error using the standard deviation of the simulations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sd1 <span class="ot">&lt;-</span> <span class="fu">sd</span>(<span class="fu">as.data.frame</span>(mat2)<span class="sc">$</span>beta1)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sd1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.168046</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sd2 <span class="ot">&lt;-</span> <span class="fu">sd</span>(<span class="fu">as.data.frame</span>(mat2)<span class="sc">$</span>beta2)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sd2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.07764108</code></pre>
+</div>
+</div>
+<p>For now we will proceed to calculate the power function using the known DGP variance. To do so we will first construct a grid of alternative values of <span class="math inline">\(beta\)</span>. Next, we will estimate the power for each true value of <span class="math inline">\(beta\)</span>; i.e.&nbsp;each value in the grid. Finally, we will plot the two power functions alongside one another.</p>
+<p>Construct grid of alternative values of <span class="math inline">\(\tau_0\)</span>, centered around <span class="math inline">\(\tau_0\)</span>=0.02. This should include <span class="math inline">\(\tau_0=0\)</span>, the null hypothesis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>tau0[<span class="dv">1</span>]<span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.1</span> <span class="sc">+</span> tau</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">200</span>) {</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  data1<span class="sc">$</span>tau0[i] <span class="ot">&lt;-</span> data1<span class="sc">$</span>tau0[i<span class="dv">-1</span>] <span class="sc">+</span> <span class="fl">0.001</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calculate power at each value of <span class="math inline">\(\tau_0\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta1 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se1) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se1)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta2 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se2) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Plot power curves</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x=</span>tau0,<span class="at">y=</span>theta1)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta1,<span class="at">color=</span><span class="st">"Beta1"</span>)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta2,<span class="at">color=</span><span class="st">"Beta2"</span>),<span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">"H0"</span>)) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="fl">0.05</span>,<span class="at">color=</span><span class="st">"a=0.05"</span>)) <span class="sc">+</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Beta1"</span>,<span class="st">"Beta2"</span>,<span class="st">"H0"</span>,<span class="st">"tau=0.02"</span>,<span class="st">"a=0.05"</span>),</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"Beta1"</span><span class="ot">=</span><span class="st">"red"</span>, <span class="st">"Beta2"</span><span class="ot">=</span><span class="st">"blue"</span>,<span class="st">"H0"</span><span class="ot">=</span><span class="st">"black"</span>,</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>,<span class="st">"a=0.05"</span><span class="ot">=</span><span class="st">"darkgrey"</span>)) <span class="sc">+</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"power"</span>) <span class="sc">+</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"power curves"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="seminar-1_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It is clear from the displayed power functions that the second estimator is universally more powerful. The lower variance of this estimators translates directly into a higher probability of rejecting the null hypothesis of no-effect for all non-zero values of the true hypothesis. It is for this reason that we strongly prefer the second estimator and do not simply estimate a model of outcome on treatment.</p>
+<p>In this instance, there is relatively little power to reject the null at the true value. Can you calculate the power at <span class="math inline">\(\tau_0=0.02\)</span>?</p>
+</section>
+<section id="sample-size" class="level3">
+<h3 class="anchored" data-anchor-id="sample-size">Sample size</h3>
+<p>We have explored the value of including covariates, but what about increasing the sample size? Repeat the above process with a sample size of <span class="math inline">\(N=1000\)</span> and compare the respective distributions and power functions of the estimators.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mat3 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  df2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">1000</span>));</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>female <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1000</span>,<span class="dv">1</span>,<span class="fl">0.5</span>);</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="dv">46</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">1000</span>) <span class="sc">+</span> <span class="dv">20</span>);</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="dv">0</span>,<span class="fl">0.55</span>);</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>Y0 <span class="ot">&lt;-</span> alpha <span class="sc">+</span> gamma_f<span class="sc">*</span>df2<span class="sc">$</span>female <span class="sc">+</span> gamma_a<span class="sc">*</span>df2<span class="sc">$</span>age <span class="sc">+</span> df2<span class="sc">$</span>error;</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>temp <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>);</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>treat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df2<span class="sc">$</span>temp<span class="sc">&gt;=</span><span class="fu">median</span>(df2<span class="sc">$</span>temp),<span class="dv">1</span>,<span class="dv">0</span>);</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>Yobs <span class="ot">&lt;-</span> df2<span class="sc">$</span>Y0 <span class="sc">+</span> tau<span class="sc">*</span>df2<span class="sc">$</span>treat;</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat, <span class="at">data=</span>df2);</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat <span class="sc">+</span> female <span class="sc">+</span> age, <span class="at">data=</span>df2);</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  coef <span class="ot">&lt;-</span> <span class="fu">c</span>(lm1<span class="sc">$</span>coefficients[<span class="dv">2</span>],lm2<span class="sc">$</span>coefficients[<span class="dv">2</span>])</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>}, <span class="at">simplify =</span> <span class="st">"array"</span>)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>mat4 <span class="ot">&lt;-</span><span class="fu">t</span>(mat3)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mat4)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"beta1_1000"</span>,<span class="st">"beta2_1000"</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mat4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   beta1_1000         beta2_1000       
+ Min.   :-0.16973   Min.   :-0.114858  
+ 1st Qu.:-0.02846   1st Qu.:-0.004257  
+ Median : 0.02295   Median : 0.020215  
+ Mean   : 0.02234   Mean   : 0.019649  
+ 3rd Qu.: 0.07392   3rd Qu.: 0.042947  
+ Max.   : 0.26633   Max.   : 0.122476  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(mat4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           vars    n mean   sd median trimmed  mad   min  max range  skew
+beta1_1000    1 1000 0.02 0.08   0.02    0.02 0.08 -0.17 0.27  0.44  0.04
+beta2_1000    2 1000 0.02 0.04   0.02    0.02 0.03 -0.11 0.12  0.24 -0.02
+           kurtosis se
+beta1_1000    -0.26  0
+beta2_1000     0.16  0</code></pre>
+</div>
+</div>
+<p>Calculate power for 1000 obs</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>se3 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((gamma_f<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> gamma_a<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="dv">1</span><span class="sc">/</span><span class="dv">12</span><span class="sc">*</span>(<span class="dv">65-20</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">1000</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>se4 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">1000</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>se3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.07455803</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>se4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03478505</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta3 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se3) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se3)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta4 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se4) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Kernel Density (200 vs 1000)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>mat5 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mat2,mat4)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat5), <span class="fu">aes</span>(<span class="at">x=</span>beta1)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta1,<span class="at">color=</span><span class="st">"Beta1_200"</span>)) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta2,<span class="at">color=</span><span class="st">"Beta2_200"</span>)) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta1_1000,<span class="at">color=</span><span class="st">"Beta1_1000"</span>)) <span class="sc">+</span> </span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta2_1000,<span class="at">color=</span><span class="st">"Beta2_1000"</span>)) <span class="sc">+</span> </span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Beta1_200"</span>,<span class="st">"Beta2_200"</span>,<span class="st">"Beta1_1000"</span>,<span class="st">"Beta2_1000"</span>,<span class="st">"tau=0.02"</span>),</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"Beta1_200"</span><span class="ot">=</span><span class="st">"red"</span>, <span class="st">"Beta2_200"</span><span class="ot">=</span><span class="st">"blue"</span>,<span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>,</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Beta1_1000"</span><span class="ot">=</span><span class="st">"orange"</span>,<span class="st">"Beta2_1000"</span><span class="ot">=</span><span class="st">"purple"</span>)) <span class="sc">+</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"kernel density plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="seminar-1_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Plot power curves (200 vs 1000)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x=</span>tau0,<span class="at">y=</span>theta1)) <span class="sc">+</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta1,<span class="at">color=</span><span class="st">"theta1_200"</span>)) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta2,<span class="at">color=</span><span class="st">"theta2_200"</span>)) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta3,<span class="at">color=</span><span class="st">"theta1_1000"</span>)) <span class="sc">+</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta4,<span class="at">color=</span><span class="st">"theta2_1000"</span>)) <span class="sc">+</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">"H0"</span>)) <span class="sc">+</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="fl">0.05</span>,<span class="at">color=</span><span class="st">"a=0.05"</span>)) <span class="sc">+</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"theta1_200"</span>,<span class="st">"theta2_200"</span>,<span class="st">"theta1_1000"</span>,</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"theta2_1000"</span>,<span class="st">"H0"</span>,<span class="st">"tau=0.02"</span>,<span class="st">"a=0.05"</span>),</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"theta1_200"</span><span class="ot">=</span><span class="st">"red"</span>,<span class="st">"theta2_200"</span><span class="ot">=</span><span class="st">"blue"</span>,</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"theta1_1000"</span><span class="ot">=</span><span class="st">"orange"</span>,<span class="st">"theta2_1000"</span><span class="ot">=</span><span class="st">"purple"</span>,</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"H0"</span><span class="ot">=</span><span class="st">"black"</span>,<span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>,<span class="st">"a=0.05"</span><span class="ot">=</span><span class="st">"darkgrey"</span>)) <span class="sc">+</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"power"</span>) <span class="sc">+</span></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"power curves"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="seminar-1_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is not the same as Fisher’s sharp null hypothesis that the unit-level treatment effect is 0 for all units in the data.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Those familiar with the Classical Linear Regression Model might find this surprising. Recall, one of the assumption of the CLRM is that the error term is normally distributed. This assumption means that even in a finite sample, the distribution of the estimator (or test statistic) is normally distributed. When the variance of the error term is not known, and must be estimated, the resulting test statistic is T-distributed.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>In the limit, we can reduce the probability of a Type I error to 0 by setting the rejection rule to “never reject”. As a result, the probability of a Type II error will be 1 as you will always fail to reject <span class="math inline">\(H_0\)</span> when it is false.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>You could use estimates from a previous study.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Recall from lectures, the <span class="math inline">\(\hat{\beta}\)</span>-OLS estimator for a simple univariate regression model ($Y_i = \alpha + \beta W_i + \varepsilon_i$), is the same as the above <span class="math inline">\(\hat{\tau}\)</span> estimator.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>This assumption simplifies the simulation by removing any need to consider bias related to heterogeneity.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

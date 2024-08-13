@@ -12,6 +12,10 @@ website:
         menu:
           - href: lecture-1.qmd
             text: Lecture 1.1
+      - text: Seminars
+        menu:
+          - href: seminar-1.qmd
+            text: Seminar 1      
       - text: Additional
         menu:
           - href: material-cef.qmd

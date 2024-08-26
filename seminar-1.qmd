@@ -1,18 +1,27 @@
 ---
+title: "Seminar 1: Power Calculations and Simulations"
 format:
-    pdf: default
-    html: default
+  html:
+    toc: true              # Include a table of contents in the HTML output
+    toc-depth: 2           # Set the depth of the table of contents
+    number-sections: true  # Number the sections in the HTML output
+    css: styles.css        # Optionally include custom CSS for styling
+    resources: 
+      - "seminar-1.pdf"     # Make the PDF file available for download
+    #code-fold: true       # places code in dropdown
+  pdf:
+    #documentclass: article # LaTeX class used for the PDF document
+    toc: true              # Include a table of contents in the PDF output
+    number-sections: true  # Number the sections in the PDF output
+    keep-md: false          # Optionally keep the intermediate markdown file
+    output-file: "seminar-1.pdf" # Specify the PDF output file name
+    echo: true            # unhides code
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
-```
-
-# Power Calculations and Simulations
 
 ## Required R Packages
 
-```{r echo = T, results = 'hide'}
+```{r}
+#| warning: false
 library(tidyverse)
 library(modelsummary)
 library(tinytable)
@@ -125,7 +134,7 @@ $$
 \begin{aligned}
   \hat{\tau} =& \frac{1}{N_t} \sum_{i:W_i=1}Y_i-\frac{1}{N_c} \sum_{i:W_i=0}Y_i \\
   se(\hat{\tau}) =& \sqrt{V^{cons}} \\
-  =&\sqrt{S^2\left(\frac{1}{N_t}+\frac{1}{N_c}\right)}
+  =&\sqrt{\sigma^2\left(\frac{1}{N_t}+\frac{1}{N_c}\right)}
 \end{aligned}
 $$
 

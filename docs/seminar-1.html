@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EC338</title>
+<title>EC338 - Seminar 1: Power Calculations and Simulations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -161,8 +161,12 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
         <li>
-    <a class="dropdown-item" href="./lecture-1.qmd">
+    <a class="dropdown-item" href="./lecture-1-1.html">
  <span class="dropdown-text">Lecture 1.1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lecture-1-2.html">
+ <span class="dropdown-text">Lecture 1.2</span></a>
   </li>  
     </ul>
   </li>
@@ -174,6 +178,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./seminar-1.html">
  <span class="dropdown-text">Seminar 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./seminar-3.html">
+ <span class="dropdown-text">Seminar 3</span></a>
   </li>  
     </ul>
   </li>
@@ -207,35 +215,39 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#power-calculations-and-simulations" id="toc-power-calculations-and-simulations" class="nav-link active" data-scroll-target="#power-calculations-and-simulations">Power Calculations and Simulations</a>
   <ul class="collapse">
-  <li><a href="#required-r-packages" id="toc-required-r-packages" class="nav-link" data-scroll-target="#required-r-packages">Required R Packages</a></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#power-calculation" id="toc-power-calculation" class="nav-link" data-scroll-target="#power-calculation">Power calculation</a></li>
-  <li><a href="#simulation-of-power-function" id="toc-simulation-of-power-function" class="nav-link" data-scroll-target="#simulation-of-power-function">Simulation of power function</a>
-  <ul class="collapse">
-  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#data-generating-process" id="toc-data-generating-process" class="nav-link" data-scroll-target="#data-generating-process">Data generating process</a></li>
-  <li><a href="#monte-carlo-simulation" id="toc-monte-carlo-simulation" class="nav-link" data-scroll-target="#monte-carlo-simulation">Monte Carlo simulation</a></li>
-  <li><a href="#power-function" id="toc-power-function" class="nav-link" data-scroll-target="#power-function">Power function</a></li>
-  <li><a href="#sample-size" id="toc-sample-size" class="nav-link" data-scroll-target="#sample-size">Sample size</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#required-r-packages" id="toc-required-r-packages" class="nav-link active" data-scroll-target="#required-r-packages"><span class="header-section-number">1</span> Required R Packages</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">2</span> Learning Objectives</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">3</span> Motivation</a></li>
+  <li><a href="#power-calculation" id="toc-power-calculation" class="nav-link" data-scroll-target="#power-calculation"><span class="header-section-number">4</span> Power calculation</a></li>
+  <li><a href="#simulation-of-power-function" id="toc-simulation-of-power-function" class="nav-link" data-scroll-target="#simulation-of-power-function"><span class="header-section-number">5</span> Simulation of power function</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="seminar-1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Seminar 1: Power Calculations and Simulations</h1>
+</div>
 
 
 
-<section id="power-calculations-and-simulations" class="level1">
-<h1>Power Calculations and Simulations</h1>
-<section id="required-r-packages" class="level2">
-<h2 class="anchored" data-anchor-id="required-r-packages">Required R Packages</h2>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="required-r-packages" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="required-r-packages"><span class="header-section-number">1</span> Required R Packages</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
@@ -243,8 +255,8 @@ window.Quarto = {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<section id="learning-objectives" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">2</span> Learning Objectives</h2>
 <p>In this seminar you will learn how to:</p>
 <ul>
 <li><p>make an <em>a priori</em> power calculation for an experiment;</p></li>
@@ -252,8 +264,8 @@ window.Quarto = {
 <li><p>and visualize the properties of the power function.</p></li>
 </ul>
 </section>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<section id="motivation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="motivation"><span class="header-section-number">3</span> Motivation</h2>
 <p>Statistical power is an valuable theoretical and practical concept. The power of a test is the probability of rejecting the null hypothesis when the alternative hypothesis is true.</p>
 <p>Let’s consider the simple null hypothesis of no <em>average</em> treatment effect,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p><span class="math display">\[
@@ -295,8 +307,8 @@ Pr\big(\text{Failing to reject }H_0|H_0\text{ is false}\big) = 1 - Pr\big(\text{
 <p>A more powerful test has a lower probability of Type II error. Since, two tests might have the same size (i.e., <span class="math inline">\(\alpha\)</span>) we strictly prefer the more powerful test. Power is therefore an important metric by which we can compare different tests.</p>
 <p>For this test (<span class="math inline">\(H_0: \tau_{ATE}=0\)</span>), the power of the test tells you how likely you are to detect a given non-zero average treatment effect in the experiment. Given how expensive it is to implement experiments (especially in Economics), this is useful information. There would be no point running a RCT if the likelihood of rejecting a null effect is very low.</p>
 </section>
-<section id="power-calculation" class="level2">
-<h2 class="anchored" data-anchor-id="power-calculation">Power calculation</h2>
+<section id="power-calculation" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="power-calculation"><span class="header-section-number">4</span> Power calculation</h2>
 <p>In this setting, the power function tells you the probability of rejecting <span class="math inline">\(H_0\)</span> for any true value of the ATE; denoted here by the scalar <span class="math inline">\(\tau_0\)</span>. For the above two-sided test, this is given by,</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -316,7 +328,7 @@ Pr\big(\text{Failing to reject }H_0|H_0\text{ is false}\big) = 1 - Pr\big(\text{
 \begin{aligned}
   \hat{\tau} =&amp; \frac{1}{N_t} \sum_{i:W_i=1}Y_i-\frac{1}{N_c} \sum_{i:W_i=0}Y_i \\
   se(\hat{\tau}) =&amp; \sqrt{V^{cons}} \\
-  =&amp;\sqrt{S^2\left(\frac{1}{N_t}+\frac{1}{N_c}\right)}
+  =&amp;\sqrt{\sigma^2\left(\frac{1}{N_t}+\frac{1}{N_c}\right)}
 \end{aligned}
 \]</span></p>
 <p>Here we are using the constant-variance finite sample estimator. One cannot use the Neyman estimator without prior knowledge the variance of <span class="math inline">\(Y(1)\)</span>, the potential outcome with treatment. For this reason, it is less useful in power calculations made prior to the experiment.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
@@ -330,11 +342,11 @@ Pr\big(\text{Failing to reject }H_0|H_0\text{ is false}\big) = 1 - Pr\big(\text{
 <p><span class="theorem-title"><strong>Exercise 5</strong></span> How could you improve the power of an experiment?</p>
 </div>
 </section>
-<section id="simulation-of-power-function" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-of-power-function">Simulation of power function</h2>
+<section id="simulation-of-power-function" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="simulation-of-power-function"><span class="header-section-number">5</span> Simulation of power function</h2>
 <p>In this section we will simulate an experiment and plot the power function of the OLS estimator from a simple linear regression model.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> We will also examine the impact of adding good controls (covariates) to the estimated model.</p>
-<section id="setup" class="level3">
-<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<section id="setup" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">5.1</span> Setup</h3>
 <p>We begin by constructing a vector of potential outcomes, <span class="math inline">\(\{Y(0),Y(1)\}\)</span>, based on a known data generating process (DGP) and treatment effect. We will assign values to <span class="math inline">\(Y(0)\)</span> based on the following linear DGP,</p>
 <p><span class="math display">\[
         Y_i(0) = \alpha + X_i'\gamma + \varepsilon_i
@@ -352,8 +364,8 @@ Pr\big(\text{Failing to reject }H_0|H_0\text{ is false}\big) = 1 - Pr\big(\text{
 \]</span></p>
 <p>where <span class="math inline">\(W_i\)</span> is an indicator function denoting treatment status in a completely randomized experiment with equal allocation to treatment and control. We will specify the homogeneous treatment to be <span class="math inline">\(\tau = 2\%\)</span>.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 </section>
-<section id="data-generating-process" class="level3">
-<h3 class="anchored" data-anchor-id="data-generating-process">Data generating process</h3>
+<section id="data-generating-process" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="data-generating-process"><span class="header-section-number">5.2</span> Data generating process</h3>
 <p>Start by setting a seed. This ensures that all random number generators in this programme are replicable.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12956</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -594,8 +606,8 @@ window.addEventListener('load', function () { styleCell_tinytable_9gs4ubkyn36sjt
 </div>
 <p>Why are the two estimates of <span class="math inline">\(\tau\)</span> - <span class="math inline">\(\hat{\beta}_1^{OLS}\)</span> and <span class="math inline">\(\hat{\beta}_2^{OLS}\)</span> - not equal to 0.02? The OLS estimator is a random variable that has a distribution. The unconfoundedness of the treatment assignment and the homogeneous treatment effects mean that in expectation these estimators are unbiased and equal to 0.02. However, a particular realization may not be. In fact, the probability that <span class="math inline">\(\hat{\beta}^{OLS}=\tau_{ATE}=0.2\)</span> is 0.</p>
 </section>
-<section id="monte-carlo-simulation" class="level3">
-<h3 class="anchored" data-anchor-id="monte-carlo-simulation">Monte Carlo simulation</h3>
+<section id="monte-carlo-simulation" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="monte-carlo-simulation"><span class="header-section-number">5.3</span> Monte Carlo simulation</h3>
 <p>To examine this characteristic of both estimators we will repeat the above process R-times. This will allow us to observe the overall distribution of the estimator. To do so we will write a short program that executes the same process R-times. The programme stores value of the estimator in a matrix.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mat1 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
@@ -639,6 +651,13 @@ beta2 0.00</code></pre>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">colour=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(beta1)),</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -646,10 +665,13 @@ beta2 0.00</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat2), <span class="fu">aes</span>(<span class="at">x=</span>beta2)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">colour=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(beta2)),</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat2), <span class="fu">aes</span>(<span class="at">x=</span>beta2)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">colour=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(beta2)),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span><span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -660,15 +682,15 @@ beta2 0.00</code></pre>
 </div>
 <p>Second, using a kernel density function, which generates a smoothed estimate of the density function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat2), <span class="fu">aes</span>(<span class="at">x=</span>beta1)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta1,<span class="at">color=</span><span class="st">"Beta1"</span>)) <span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta2,<span class="at">color=</span><span class="st">"Beta2"</span>),<span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Beta1"</span>,<span class="st">"Beta2"</span>,<span class="st">"tau=0.02"</span>),</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"Beta1"</span><span class="ot">=</span><span class="st">"red"</span>, <span class="st">"Beta2"</span><span class="ot">=</span><span class="st">"blue"</span>,<span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>)) <span class="sc">+</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"kernel density plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat2), <span class="fu">aes</span>(<span class="at">x=</span>beta1)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta1,<span class="at">color=</span><span class="st">"Beta1"</span>)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta2,<span class="at">color=</span><span class="st">"Beta2"</span>),<span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Beta1"</span>,<span class="st">"Beta2"</span>,<span class="st">"tau=0.02"</span>),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"Beta1"</span><span class="ot">=</span><span class="st">"red"</span>, <span class="st">"Beta2"</span><span class="ot">=</span><span class="st">"blue"</span>,<span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>)) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"kernel density plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -679,8 +701,8 @@ beta2 0.00</code></pre>
 </div>
 <p>The distribution of both estimators is remarkably . This is by design. The distribution of <span class="math inline">\(\hat{\beta}\)</span> is dependent on the distribution of the error term. In this instance, that is a normal distribution because of the DGP we specified.</p>
 </section>
-<section id="power-function" class="level3">
-<h3 class="anchored" data-anchor-id="power-function">Power function</h3>
+<section id="power-function" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="power-function"><span class="header-section-number">5.4</span> Power function</h3>
 <p>To compute the power function we need to know the variance of each of our two OLS estimators. Given that the variance of the estimator is in fact known, we could include this directly. Alternatively, we could estimate the variance of the each estimator using the distribution from the simulation.</p>
 <p>Let us see how close the simulation variance is to the true DGP variance. From the DGP, we know that</p>
 <p><span class="math display">\[
@@ -696,26 +718,26 @@ beta2 0.00</code></pre>
 \]</span></p>
 <p>Calculate standard error for each estimator based on known distributions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>se1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((gamma_f<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> gamma_a<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="dv">1</span><span class="sc">/</span><span class="dv">12</span><span class="sc">*</span>(<span class="dv">65-20</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">200</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>se2 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">200</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>se1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>se1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((gamma_f<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> gamma_a<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="dv">1</span><span class="sc">/</span><span class="dv">12</span><span class="sc">*</span>(<span class="dv">65-20</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">200</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>se2 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">200</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>se1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1667168</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>se2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>se2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.07778175</code></pre>
 </div>
 </div>
 <p>Approximate the standard error using the standard deviation of the simulations.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sd1 <span class="ot">&lt;-</span> <span class="fu">sd</span>(<span class="fu">as.data.frame</span>(mat2)<span class="sc">$</span>beta1)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sd1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sd1 <span class="ot">&lt;-</span> <span class="fu">sd</span>(<span class="fu">as.data.frame</span>(mat2)<span class="sc">$</span>beta1)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>sd1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.168046</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sd2 <span class="ot">&lt;-</span> <span class="fu">sd</span>(<span class="fu">as.data.frame</span>(mat2)<span class="sc">$</span>beta2)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sd2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sd2 <span class="ot">&lt;-</span> <span class="fu">sd</span>(<span class="fu">as.data.frame</span>(mat2)<span class="sc">$</span>beta2)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sd2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.07764108</code></pre>
 </div>
@@ -723,31 +745,31 @@ beta2 0.00</code></pre>
 <p>For now we will proceed to calculate the power function using the known DGP variance. To do so we will first construct a grid of alternative values of <span class="math inline">\(beta\)</span>. Next, we will estimate the power for each true value of <span class="math inline">\(beta\)</span>; i.e.&nbsp;each value in the grid. Finally, we will plot the two power functions alongside one another.</p>
 <p>Construct grid of alternative values of <span class="math inline">\(\tau_0\)</span>, centered around <span class="math inline">\(\tau_0\)</span>=0.02. This should include <span class="math inline">\(\tau_0=0\)</span>, the null hypothesis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>tau0[<span class="dv">1</span>]<span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.1</span> <span class="sc">+</span> tau</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">200</span>) {</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  data1<span class="sc">$</span>tau0[i] <span class="ot">&lt;-</span> data1<span class="sc">$</span>tau0[i<span class="dv">-1</span>] <span class="sc">+</span> <span class="fl">0.001</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>tau0[<span class="dv">1</span>]<span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.1</span> <span class="sc">+</span> tau</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">200</span>) {</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  data1<span class="sc">$</span>tau0[i] <span class="ot">&lt;-</span> data1<span class="sc">$</span>tau0[i<span class="dv">-1</span>] <span class="sc">+</span> <span class="fl">0.001</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Calculate power at each value of <span class="math inline">\(\tau_0\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta1 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se1) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se1)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta2 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se2) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta1 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se1) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se1)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta2 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se2) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Plot power curves</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x=</span>tau0,<span class="at">y=</span>theta1)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta1,<span class="at">color=</span><span class="st">"Beta1"</span>)) <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta2,<span class="at">color=</span><span class="st">"Beta2"</span>),<span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">"H0"</span>)) <span class="sc">+</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="fl">0.05</span>,<span class="at">color=</span><span class="st">"a=0.05"</span>)) <span class="sc">+</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Beta1"</span>,<span class="st">"Beta2"</span>,<span class="st">"H0"</span>,<span class="st">"tau=0.02"</span>,<span class="st">"a=0.05"</span>),</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"Beta1"</span><span class="ot">=</span><span class="st">"red"</span>, <span class="st">"Beta2"</span><span class="ot">=</span><span class="st">"blue"</span>,<span class="st">"H0"</span><span class="ot">=</span><span class="st">"black"</span>,</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>,<span class="st">"a=0.05"</span><span class="ot">=</span><span class="st">"darkgrey"</span>)) <span class="sc">+</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"power"</span>) <span class="sc">+</span></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"power curves"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x=</span>tau0,<span class="at">y=</span>theta1)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta1,<span class="at">color=</span><span class="st">"Beta1"</span>)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta2,<span class="at">color=</span><span class="st">"Beta2"</span>),<span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">"H0"</span>)) <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="fl">0.05</span>,<span class="at">color=</span><span class="st">"a=0.05"</span>)) <span class="sc">+</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Beta1"</span>,<span class="st">"Beta2"</span>,<span class="st">"H0"</span>,<span class="st">"tau=0.02"</span>,<span class="st">"a=0.05"</span>),</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"Beta1"</span><span class="ot">=</span><span class="st">"red"</span>, <span class="st">"Beta2"</span><span class="ot">=</span><span class="st">"blue"</span>,<span class="st">"H0"</span><span class="ot">=</span><span class="st">"black"</span>,</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>,<span class="st">"a=0.05"</span><span class="ot">=</span><span class="st">"darkgrey"</span>)) <span class="sc">+</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"power"</span>) <span class="sc">+</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"power curves"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -759,26 +781,26 @@ beta2 0.00</code></pre>
 <p>It is clear from the displayed power functions that the second estimator is universally more powerful. The lower variance of this estimators translates directly into a higher probability of rejecting the null hypothesis of no-effect for all non-zero values of the true hypothesis. It is for this reason that we strongly prefer the second estimator and do not simply estimate a model of outcome on treatment.</p>
 <p>In this instance, there is relatively little power to reject the null at the true value. Can you calculate the power at <span class="math inline">\(\tau_0=0.02\)</span>?</p>
 </section>
-<section id="sample-size" class="level3">
-<h3 class="anchored" data-anchor-id="sample-size">Sample size</h3>
+<section id="sample-size" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="sample-size"><span class="header-section-number">5.5</span> Sample size</h3>
 <p>We have explored the value of including covariates, but what about increasing the sample size? Repeat the above process with a sample size of <span class="math inline">\(N=1000\)</span> and compare the respective distributions and power functions of the estimators.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mat3 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  df2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">1000</span>));</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>female <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1000</span>,<span class="dv">1</span>,<span class="fl">0.5</span>);</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="dv">46</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">1000</span>) <span class="sc">+</span> <span class="dv">20</span>);</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="dv">0</span>,<span class="fl">0.55</span>);</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>Y0 <span class="ot">&lt;-</span> alpha <span class="sc">+</span> gamma_f<span class="sc">*</span>df2<span class="sc">$</span>female <span class="sc">+</span> gamma_a<span class="sc">*</span>df2<span class="sc">$</span>age <span class="sc">+</span> df2<span class="sc">$</span>error;</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>temp <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>);</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>treat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df2<span class="sc">$</span>temp<span class="sc">&gt;=</span><span class="fu">median</span>(df2<span class="sc">$</span>temp),<span class="dv">1</span>,<span class="dv">0</span>);</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>Yobs <span class="ot">&lt;-</span> df2<span class="sc">$</span>Y0 <span class="sc">+</span> tau<span class="sc">*</span>df2<span class="sc">$</span>treat;</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat, <span class="at">data=</span>df2);</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat <span class="sc">+</span> female <span class="sc">+</span> age, <span class="at">data=</span>df2);</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  coef <span class="ot">&lt;-</span> <span class="fu">c</span>(lm1<span class="sc">$</span>coefficients[<span class="dv">2</span>],lm2<span class="sc">$</span>coefficients[<span class="dv">2</span>])</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>}, <span class="at">simplify =</span> <span class="st">"array"</span>)</span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>mat4 <span class="ot">&lt;-</span><span class="fu">t</span>(mat3)</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mat4)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"beta1_1000"</span>,<span class="st">"beta2_1000"</span>)</span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mat4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>mat3 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  df2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">1000</span>));</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>female <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1000</span>,<span class="dv">1</span>,<span class="fl">0.5</span>);</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="dv">46</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">1000</span>) <span class="sc">+</span> <span class="dv">20</span>);</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="dv">0</span>,<span class="fl">0.55</span>);</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>Y0 <span class="ot">&lt;-</span> alpha <span class="sc">+</span> gamma_f<span class="sc">*</span>df2<span class="sc">$</span>female <span class="sc">+</span> gamma_a<span class="sc">*</span>df2<span class="sc">$</span>age <span class="sc">+</span> df2<span class="sc">$</span>error;</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>temp <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>);</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>treat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df2<span class="sc">$</span>temp<span class="sc">&gt;=</span><span class="fu">median</span>(df2<span class="sc">$</span>temp),<span class="dv">1</span>,<span class="dv">0</span>);</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  df2<span class="sc">$</span>Yobs <span class="ot">&lt;-</span> df2<span class="sc">$</span>Y0 <span class="sc">+</span> tau<span class="sc">*</span>df2<span class="sc">$</span>treat;</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat, <span class="at">data=</span>df2);</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Yobs <span class="sc">~</span> treat <span class="sc">+</span> female <span class="sc">+</span> age, <span class="at">data=</span>df2);</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  coef <span class="ot">&lt;-</span> <span class="fu">c</span>(lm1<span class="sc">$</span>coefficients[<span class="dv">2</span>],lm2<span class="sc">$</span>coefficients[<span class="dv">2</span>])</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>}, <span class="at">simplify =</span> <span class="st">"array"</span>)</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>mat4 <span class="ot">&lt;-</span><span class="fu">t</span>(mat3)</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mat4)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"beta1_1000"</span>,<span class="st">"beta2_1000"</span>)</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mat4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   beta1_1000         beta2_1000       
  Min.   :-0.16973   Min.   :-0.114858  
@@ -788,7 +810,7 @@ beta2 0.00</code></pre>
  3rd Qu.: 0.07392   3rd Qu.: 0.042947  
  Max.   : 0.26633   Max.   : 0.122476  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(mat4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(mat4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           vars    n mean   sd median trimmed  mad   min  max range  skew
 beta1_1000    1 1000 0.02 0.08   0.02    0.02 0.08 -0.17 0.27  0.44  0.04
@@ -800,34 +822,34 @@ beta2_1000     0.16  0</code></pre>
 </div>
 <p>Calculate power for 1000 obs</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>se3 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((gamma_f<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> gamma_a<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="dv">1</span><span class="sc">/</span><span class="dv">12</span><span class="sc">*</span>(<span class="dv">65-20</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">1000</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>se4 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">1000</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>se3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>se3 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((gamma_f<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> gamma_a<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="dv">1</span><span class="sc">/</span><span class="dv">12</span><span class="sc">*</span>(<span class="dv">65-20</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">1000</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>se4 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="fl">0.55</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">1000</span><span class="sc">*</span>(<span class="fl">0.5-0.5</span><span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>se3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.07455803</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>se4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>se4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.03478505</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta3 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se3) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se3)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta4 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se4) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta3 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se3) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se3)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>theta4 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.025</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se4) <span class="sc">+</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">-</span>data1<span class="sc">$</span>tau0<span class="sc">/</span>se4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Kernel Density (200 vs 1000)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>mat5 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mat2,mat4)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat5), <span class="fu">aes</span>(<span class="at">x=</span>beta1)) <span class="sc">+</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta1,<span class="at">color=</span><span class="st">"Beta1_200"</span>)) <span class="sc">+</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta2,<span class="at">color=</span><span class="st">"Beta2_200"</span>)) <span class="sc">+</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta1_1000,<span class="at">color=</span><span class="st">"Beta1_1000"</span>)) <span class="sc">+</span> </span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta2_1000,<span class="at">color=</span><span class="st">"Beta2_1000"</span>)) <span class="sc">+</span> </span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Beta1_200"</span>,<span class="st">"Beta2_200"</span>,<span class="st">"Beta1_1000"</span>,<span class="st">"Beta2_1000"</span>,<span class="st">"tau=0.02"</span>),</span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"Beta1_200"</span><span class="ot">=</span><span class="st">"red"</span>, <span class="st">"Beta2_200"</span><span class="ot">=</span><span class="st">"blue"</span>,<span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>,</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Beta1_1000"</span><span class="ot">=</span><span class="st">"orange"</span>,<span class="st">"Beta2_1000"</span><span class="ot">=</span><span class="st">"purple"</span>)) <span class="sc">+</span></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"kernel density plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>mat5 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mat2,mat4)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(mat5), <span class="fu">aes</span>(<span class="at">x=</span>beta1)) <span class="sc">+</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta1,<span class="at">color=</span><span class="st">"Beta1_200"</span>)) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta2,<span class="at">color=</span><span class="st">"Beta2_200"</span>)) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta1_1000,<span class="at">color=</span><span class="st">"Beta1_1000"</span>)) <span class="sc">+</span> </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>beta2_1000,<span class="at">color=</span><span class="st">"Beta2_1000"</span>)) <span class="sc">+</span> </span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"Beta1_200"</span>,<span class="st">"Beta2_200"</span>,<span class="st">"Beta1_1000"</span>,<span class="st">"Beta2_1000"</span>,<span class="st">"tau=0.02"</span>),</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"Beta1_200"</span><span class="ot">=</span><span class="st">"red"</span>, <span class="st">"Beta2_200"</span><span class="ot">=</span><span class="st">"blue"</span>,<span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>,</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Beta1_1000"</span><span class="ot">=</span><span class="st">"orange"</span>,<span class="st">"Beta2_1000"</span><span class="ot">=</span><span class="st">"purple"</span>)) <span class="sc">+</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"kernel density plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -838,23 +860,23 @@ beta2_1000     0.16  0</code></pre>
 </div>
 <p>Plot power curves (200 vs 1000)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x=</span>tau0,<span class="at">y=</span>theta1)) <span class="sc">+</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta1,<span class="at">color=</span><span class="st">"theta1_200"</span>)) <span class="sc">+</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta2,<span class="at">color=</span><span class="st">"theta2_200"</span>)) <span class="sc">+</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta3,<span class="at">color=</span><span class="st">"theta1_1000"</span>)) <span class="sc">+</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta4,<span class="at">color=</span><span class="st">"theta2_1000"</span>)) <span class="sc">+</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">"H0"</span>)) <span class="sc">+</span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="fl">0.05</span>,<span class="at">color=</span><span class="st">"a=0.05"</span>)) <span class="sc">+</span></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"theta1_200"</span>,<span class="st">"theta2_200"</span>,<span class="st">"theta1_1000"</span>,</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"theta2_1000"</span>,<span class="st">"H0"</span>,<span class="st">"tau=0.02"</span>,<span class="st">"a=0.05"</span>),</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"theta1_200"</span><span class="ot">=</span><span class="st">"red"</span>,<span class="st">"theta2_200"</span><span class="ot">=</span><span class="st">"blue"</span>,</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"theta1_1000"</span><span class="ot">=</span><span class="st">"orange"</span>,<span class="st">"theta2_1000"</span><span class="ot">=</span><span class="st">"purple"</span>,</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"H0"</span><span class="ot">=</span><span class="st">"black"</span>,<span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>,<span class="st">"a=0.05"</span><span class="ot">=</span><span class="st">"darkgrey"</span>)) <span class="sc">+</span></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"power"</span>) <span class="sc">+</span></span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"power curves"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x=</span>tau0,<span class="at">y=</span>theta1)) <span class="sc">+</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta1,<span class="at">color=</span><span class="st">"theta1_200"</span>)) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta2,<span class="at">color=</span><span class="st">"theta2_200"</span>)) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta3,<span class="at">color=</span><span class="st">"theta1_1000"</span>)) <span class="sc">+</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>theta4,<span class="at">color=</span><span class="st">"theta2_1000"</span>)) <span class="sc">+</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">"H0"</span>)) <span class="sc">+</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">0.02</span>,<span class="at">color=</span><span class="st">"tau=0.02"</span>)) <span class="sc">+</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="fl">0.05</span>,<span class="at">color=</span><span class="st">"a=0.05"</span>)) <span class="sc">+</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>,</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"theta1_200"</span>,<span class="st">"theta2_200"</span>,<span class="st">"theta1_1000"</span>,</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"theta2_1000"</span>,<span class="st">"H0"</span>,<span class="st">"tau=0.02"</span>,<span class="st">"a=0.05"</span>),</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values=</span><span class="fu">c</span>(<span class="st">"theta1_200"</span><span class="ot">=</span><span class="st">"red"</span>,<span class="st">"theta2_200"</span><span class="ot">=</span><span class="st">"blue"</span>,</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"theta1_1000"</span><span class="ot">=</span><span class="st">"orange"</span>,<span class="st">"theta2_1000"</span><span class="ot">=</span><span class="st">"purple"</span>,</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"H0"</span><span class="ot">=</span><span class="st">"black"</span>,<span class="st">"tau=0.02"</span><span class="ot">=</span><span class="st">"darkgreen"</span>,<span class="st">"a=0.05"</span><span class="ot">=</span><span class="st">"darkgrey"</span>)) <span class="sc">+</span></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"beta/tau"</span>) <span class="sc">+</span></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"power"</span>) <span class="sc">+</span></span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"power curves"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -865,7 +887,6 @@ beta2_1000     0.16  0</code></pre>
 </div>
 
 
-</section>
 </section>
 </section>
 

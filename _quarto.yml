@@ -10,12 +10,16 @@ website:
         text: Home
       - text: Lectures
         menu:
-          - href: lecture-1.qmd
+          - href: lecture-1-1.qmd
             text: Lecture 1.1
+          - href: lecture-1-2.qmd
+            text: Lecture 1.2
       - text: Seminars
         menu:
           - href: seminar-1.qmd
-            text: Seminar 1      
+            text: Seminar 1 
+          - href: seminar-3.qmd
+            text: Seminar 3     
       - text: Additional
         menu:
           - href: material-cef.qmd
@@ -33,3 +37,5 @@ format:
 
 editor: source
 
+execute:
+  freeze: auto

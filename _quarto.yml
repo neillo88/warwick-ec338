@@ -31,7 +31,9 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: lightly
+      dark: darkly
     css: styles.css
     toc: true
 
@@ -39,3 +41,4 @@ editor: source
 
 execute:
   freeze: auto
+  

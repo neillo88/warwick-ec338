@@ -20,41 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,10 +55,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -174,6 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -183,7 +172,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#welcome-to-338" id="toc-welcome-to-338" class="nav-link active" data-scroll-target="#welcome-to-338">Welcome to ’338!</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#source-material" id="toc-source-material" class="nav-link" data-scroll-target="#source-material">Source Material</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -207,18 +205,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<section id="welcome-to-338" class="level2">
+<h2 class="anchored" data-anchor-id="welcome-to-338">Welcome to ’338!</h2>
+<p>This is not the official module website. The <a href="https://moodle.warwick.ac.uk/course/view.php?id=64246">EC338 (2024/25)</a> Moodle-page is the primary source of communication and resources for this module. All material available on this website can be found there.</p>
+<p>I designed this website as a means of testing out the Quarto package, developed by RStudio.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> This was partly as a way to develop my own skills and better incorporate the R language into the module. However, there are also accessibility benefits to this approach. Mathematical notation published in pdf’s using LaTeX cannot be read by a screen reader, while LaTeX published in html can. In addition, the website has built-in dark-mode option (see top-right toggle). For those who prefer pdf (for printing and notetaking), each page contains a unique downloadable link.</p>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>I would like to thank the following students for their help with this and other pedagogical projects: Diwen Si (BSc, 2023/24); Franklin Gonzalez Alcantara (BSc, 2023/24); Milan Makany (MSc, 2023/24); Jiarui Song (BSc, 2022/23); Patricio Hernandez Senosiain (BSc, 2022/23); Takumi Horikawa (MSc, 2022/23). You have been instrumental in my learning as well as the learning of the many students who will use these resources going forward.</p>
+<p><strong>Please let me know if you find any mistakes in my notes or code.</strong> In addition, I welcome suggestions on how to improve the R (or Stata) code provided in this module. I will endeavor to do my best to acknowledge the many people who have contributed to this material and my wider knowledge of this subject.</p>
+</section>
+<section id="source-material" class="level2">
+<h2 class="anchored" data-anchor-id="source-material">Source Material</h2>
+<p>My material for EC338 has been heavily influenced by <span class="citation" data-cites="imbens2015">Imbens and Rubin (<a href="#ref-imbens2015" role="doc-biblioref">2015</a>)</span> seminal book on causal inference, <em>Causal Inference in Statistics, Social, and Biomedical Sciences</em>. This book is dense and comprehensive, having been written for a wide range of scientists. It includes discussions on topics that are less relevant in economics research. I have borrowed extensively from <span class="citation" data-cites="imbens2015">Imbens and Rubin (<a href="#ref-imbens2015" role="doc-biblioref">2015</a>)</span> in my discussions of the Potential Outcomes Framework and randomized experiments, adopting much of their notation. The text is less relevant to natural experiment methodologies like difference-in-differences, but I have tried to maintain a consistent notation throughout.</p>
+<p>There are a number of texts more readily used by applied economists. In particular, <span class="citation" data-cites="angrist2009">Angrist and Pischke (<a href="#ref-angrist2009" role="doc-biblioref">2009</a>)</span> <em>Mostly Harmless Econometrics</em>, a text that became a must-read for all applied microeconomics researchers during the last 15 years. In <em>Mostly Harmless</em>, <span class="citation" data-cites="angrist2009">Angrist and Pischke (<a href="#ref-angrist2009" role="doc-biblioref">2009</a>)</span> try to provide a practical guide to the use and interpretation of Econometric methods in applied microeconomics research. They focus on methods used <em>by Economists</em> in the study of randomized and natural experiments. This is both a strength and weakness of the book, as the content is largely based on practice (i.e.&nbsp;the methods being used by economists) which need not be “best practice”. As such, the book has the same shortcomings and biases as the economics discipline. For example, economists like linear regression models, but as we will soon see there are problems associated with the application of these models in a setting with heterogeneous treatment effects.</p>
+<p>In my opinion, <span class="citation" data-cites="angrist2009">Angrist and Pischke (<a href="#ref-angrist2009" role="doc-biblioref">2009</a>)</span> is better suited to graduate students who have a more extensive knowledge of Econometric methods. Some of the Econometrics topics discussed as well as the notation used, is not typically covered in an undergraduate syllabus. Fortunately, Angrist has provided a less technical version, <em>Mastering ’Metrics</em> <span class="citation" data-cites="angrist2014">(<a href="#ref-angrist2014" role="doc-biblioref">Angrist 2014</a>)</span>, focused on intuition and application.</p>
+<p>Another modern text that includes helpful code and examples is <span class="citation" data-cites="cunningham2021">Cunningham (<a href="#ref-cunningham2021" role="doc-biblioref">2021</a>)</span> <em>Causal Inference: The Mixtape</em>. This book provides an excellent discussion of modern applied methods; especially topics related to the study of observational data (e.g., matching) and natural experiments (incl., DID, RDD, Event-studies). The discussion on difference-in-differences references some of the more recent literature related to heterogeneous effects.</p>
+<p>My notes try to provide a more theoretical foundation to the discussion of causal inference in Econometrics, something that I feel is missing in <span class="citation" data-cites="angrist2009">Angrist and Pischke (<a href="#ref-angrist2009" role="doc-biblioref">2009</a>)</span> and <span class="citation" data-cites="cunningham2021">Cunningham (<a href="#ref-cunningham2021" role="doc-biblioref">2021</a>)</span>. To do so, I borrow from <span class="citation" data-cites="imbens2015">Imbens and Rubin (<a href="#ref-imbens2015" role="doc-biblioref">2015</a>)</span>, whose discussion of causal effects is based on an experimental model of the data generating process. This experimental foundation is not always consistent with the econometrics models studied in standard Econometric texts <span class="citation" data-cites="wooldridge2010">(see <a href="#ref-wooldridge2010" role="doc-biblioref">Wooldridge 2010</a>)</span>. In my notes, I try to provide an introduction to the experimental model as well as a bridge to the econometrics models you are already familiar with (mostly linear regression model). But this bridge doesn’t always exist and, when it does, it sometimes takes a toll (i.e.&nbsp;additional assumptions).</p>
+<p><strong>I hope you enjoy this module!</strong></p>
+<p><a href="https://warwick.ac.uk/fac/soc/economics/staff/nlloyd/">Neil Lloyd</a></p>
+</section>
+<section id="references" class="level2">
+
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-angrist2014" class="csl-entry" role="listitem">
+Angrist, Joshua D. 2014. <em>Mastering ’Metrics: The Path from Cause to Effect</em>. Princeton University Press.
 </div>
+<div id="ref-angrist2009" class="csl-entry" role="listitem">
+Angrist, Joshua D, and Jörn-Steffen Pischke. 2009. <em>Mostly Harmless Econometrics: An Empiricist’s Companion</em>. Princeton university press.
 </div>
+<div id="ref-cunningham2021" class="csl-entry" role="listitem">
+Cunningham, Scott. 2021. <em>Causal Inference: The Mixtape</em>. Yale university press.
+</div>
+<div id="ref-imbens2015" class="csl-entry" role="listitem">
+Imbens, Guido W, and Donald B Rubin. 2015. <em>Causal Inference in Statistics, Social, and Biomedical Sciences</em>. Cambridge university press.
+</div>
+<div id="ref-wooldridge2010" class="csl-entry" role="listitem">
+Wooldridge, Jeffrey M. 2010. <em>Econometric Analysis of Cross Section and Panel Data</em>. MIT press.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
-
-
-</main> <!-- /main -->
+<ol>
+<li id="fn1"><p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -239,6 +275,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
